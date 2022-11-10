@@ -3,7 +3,7 @@ this repo contains information to patch AMSI and ETW using a single byte patch f
 
 The idea was to limit detection of the patch itself since it's a single byte.
 
-# AMSI
+# AMSI (patch-amsi-x64.c)
 
 The idea is that AMSI perform a lot of validation check before hitting the critical AMSI "check" code. You can simply toggle one of the `jz` for a `jnz` and vice versa.
 
@@ -20,7 +20,7 @@ In this case we patch the `jnz` after the `cmp dword ptr [rbx], 49534d41h`.
 
 the patch is simply Address of `AmsiScanBuffer + 0x83 = 0x74 (x64)`
 
-# ETW
+# ETW (patch-etw-x64.c)
 
 Instead of patching `EtwEventWrite` simply patch the syscall `NtTraceEvent` which is called by a lot of functions.
 
