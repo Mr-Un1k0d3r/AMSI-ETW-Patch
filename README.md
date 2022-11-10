@@ -18,7 +18,7 @@ Example of checks that can be toggled to avoid calling the critical code.
 
 In this case we patch the `jnz` after the `cmp dword ptr [rbx], 49534d41h`.
 
-the patch is simply Address of `AmsiScanBuffer + 167 = 0x74 (x64)`
+the patch is simply Address of `AmsiScanBuffer + 0x83 = 0x74 (x64)`
 
 # ETW (patch-etw-x64.c)
 
